@@ -64,8 +64,8 @@ for i=1:n-1
     robot.T(4,1:4)=[0 0 0 1];
     tstart(i)=tic;
     
-    % qsol=tung_3invkin(robot.T);
-    qsol = tung_3jac(robot.T, data(:,i));
+    qsol=tung_3invkin(robot.T);
+    % qsol = tung_3jac(robot.T, data(:,i));
     
     telapsed(i)=toc(tstart(i));
     qsol1(:,i)=qsol(1:3,1);
