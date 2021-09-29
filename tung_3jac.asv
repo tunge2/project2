@@ -1,0 +1,27 @@
+
+
+
+
+
+
+function [q] = tung_3jac(T,p0T)
+
+L = [1.5 1.5 0.5];
+data = T(1:2,4);
+n = length(data);
+
+maxiter = 1000;
+q0 = [-1.63588670230047;2.36095909483614;-2.38621253915662]
+q = zeros(3,n);
+alpha = 1;
+for i=1:n
+    counter = 0;
+    while counter < maxiter
+        [~, ~, joints] = tung_forwardkin(q(:,i)) 
+        JT = makeJac(L,q(:,i))';
+        q(:,i) = q(:,i)-alpha*JT*(???????- p0T);
+    end
+    q0 = q(:,i);
+end
+
+end
